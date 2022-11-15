@@ -357,6 +357,19 @@ for i in range(1, 101):
 print(ls)
 ```
 
+```{r}
+
+lstis <- c()
+for (i in seq(0,100)){
+  if (i %% 3 == 0){
+    append(lstis, 0)
+  }else{
+    append(lstis, i)
+  }
+}
+print(lstis)
+```
+
 _Your cell here._
 
 ```python
@@ -370,7 +383,18 @@ for i in lst:
         summ += i
 print(summ)
 ```
+```{r}
+lst <- c(1, 3, 2, 4.5, 7, 8, 10, 3, 5, 4, 7, 3.33)
+summ = 0
+for (i in lst){
+  if (i %% 2 == 0){
+    summ <- summ + i
+  }
+}
 
+print(summ)
+
+```
 _Your cell here._
 
 ### Function Exercises
@@ -392,6 +416,19 @@ mylist = [1, 2, 3]
 zerolist = zero_list(mylist)  
 print(mylist)
 print(zerolist)
+```
+
+```{r}
+zero_list <- function(alist){
+  newlist <- alist*0
+  return(newlist)
+}
+mylist <- c(1, 2, 3)
+
+zerolist <- zero_list(mylist)
+print(mylist)
+print(zerolist)
+
 ```
 
 _Your cell here._
@@ -434,6 +471,13 @@ Below we have the list comprehensions that we wrote in class in Week 3. For each
 lst = [1, 3, 2, 4.5, 7, 8, 10, 3, 5, 4, 7, 3.33]
 ans = [i**2 for i in lst if type(i) == int] 
 ```
+```{r}
+
+lst <- c(1, 3, 2, 4.5, 7, 8, 10, 3, 5, 4, 7, 3.33)
+print(lst[!lst%%1]^2)
+print(lst[which(lst%%1 == 0)]^2)
+
+```
 _Your cell here._
 
 ```python
@@ -469,6 +513,26 @@ for (i in 1:m) {
     mydframe[i,j] <- mydframe[i,j] + 10*sin(0.75*pi)
   }
 }
+mydframe
+```
+
+```{r}
+# Set seed to compare the results
+set.seed(42)
+
+m <- 10
+n <- 10
+
+# Create matrix of normal random numbers
+# replicate(num_of_replications, expression to evaluate)
+# 10 x 10 normally distributed matrix
+mymat <- replicate(m, rnorm(n))
+
+# Transform into data frame
+mydframe <- data.frame(mymat)
+
+mydframe <- mydframe + 10*sin(.75*pi)
+
 mydframe
 ```
 
